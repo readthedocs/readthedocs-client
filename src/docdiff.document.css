@@ -1,0 +1,12 @@
+.doc-diff-added {
+  background-color: rgb(171, 242, 188);
+  text-decoration: none;
+}
+
+.doc-diff-modified {
+}
+
+.doc-diff-removed {
+  background-color: rgba(255, 129, 130, 0.4);
+  text-decoration: none;
+}
