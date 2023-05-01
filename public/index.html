@@ -1,6 +1,13 @@
 <html>
   <head>
+    <meta name="readthedocs-api-version" content="1">
     <title>Documentation Addons - Read the Docs</title>
+    <script>
+        // Example of using "readthedocsdataready" with a different API version supported
+        document.addEventListener("readthedocsdataready", function(event) {
+          console.debug(event.detail);
+        });
+    </script>
   </head>
   <body>
 
