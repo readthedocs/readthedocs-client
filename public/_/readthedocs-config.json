@@ -63,7 +63,13 @@
       "inject_styles": true
     },
     "flyout": {
-      "translations": [],
+      "enabled": true,
+      "translations": [
+        {
+          "slug": "es",
+          "url": "/es/"
+        }
+      ],
       "versions": [
         {
           "slug": "stable",
@@ -86,7 +92,12 @@
           "url": "/en/v2.0/"
         }
       ],
-      "downloads": [],
+      "downloads": [
+        {
+          "name": "PDF",
+          "url": "/_/downloads/en/latest/"
+        }
+      ],
       "vcs": {
         "url": "https://github.com",
         "username": "readthedocs",

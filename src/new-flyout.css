@@ -1,0 +1,46 @@
+/* New */
+
+:host {
+  position: fixed;
+  right: 150px;
+  bottom: 0;
+  width: 350px;
+  height: 250px;
+}
+
+:host > div {
+  border-radius: 0.5rem 0.5rem 0 0;
+  font-family: var(
+    --readthedocs-flyout-font-family,
+    "Lato",
+    "proxima-nova",
+    "Helvetica Neue",
+    "Arial",
+    "sans-serif"
+  );
+  font-size: var(--readthedocs-flyout-font-size, 0.8rem);
+  color: var(--readthedocs-flyout-color, rgb(64, 64, 64));
+  background-color: var(
+    --readthedocs-flyout-background-color,
+    rgb(234, 234, 234)
+  );
+  box-shadow: 0 2px 4px 0 rgba(34, 36, 38, 0.12),
+    0 2px 10px 0 rgba(34, 36, 38, 0.15);
+  z-index: 3000;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+:host > div > img.logo {
+  text-align: center;
+  width: 150px;
+}
+
+:host li {
+  list-style: none;
+  display: inline-block;
+}
+
+:host li > a {
+  text-decoration: none;
+}
