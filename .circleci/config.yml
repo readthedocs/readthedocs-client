@@ -1,12 +1,17 @@
 version: 2.1
 
+orbs:
+  browser-tools: circleci/browser-tools@1.4.1
+
 commands:
   run-tests:
     description: "Run test suite"
     steps:
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
       - checkout
       - run: npm ci
-      - run: CHROME_PATH=/bin/chromium npm run test
+      - run: npm run test
   run-checks:
     description: "Run basic checks"
     steps:
