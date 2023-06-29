@@ -1,15 +1,11 @@
-import * as readthedocs from "../src/index";
+import { expect } from "@open-wc/testing";
+import * as readthedocs from "../src/index.js";
 
-jest.mock("readthedocs-search", () => {
-    const initializeSearchAsYouType = jest.fn();
-    return jest.fn(() => initializeSearchAsYouType);
-});
-
-jest.mock("doc-diff", () => {
-    const compare = jest.fn();
-    return jest.fn(() => compare);
-});
-
-test("setup() function is defined", () => {
-    expect(readthedocs.setup).toBeDefined();
+describe("Main library", () => {
+  it("is defined", () => {
+    expect(readthedocs).to.exist;
+  });
+  it("setup() function is defined", () => {
+    expect(readthedocs.setup).to.exist;
+  });
 });

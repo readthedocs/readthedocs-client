@@ -14,6 +14,7 @@ export class NotificationElement extends LitElement {
 
   /** @static @property {Object} - Lit reactive properties */
   static properties = {
+    className: { state: true },
     config: {
       state: true,
       // Update derived fields from config data
@@ -55,11 +56,15 @@ export class NotificationElement extends LitElement {
       return nothing;
     }
 
-    if (
-      this.config.features.external_version_warning.enabled &&
-      this.config.version.external
-    ) {
-      return this.renderExternalVersionWarning();
+    try {
+      if (
+        this.config.features.external_version_warning.enabled &&
+        this.config.version.external
+      ) {
+        return this.renderExternalVersionWarning();
+      }
+    } catch (TypeError) {
+      // Configuration options are missing or configuration is empty.
     }
 
     // TODO support the outdated version warning
@@ -106,6 +111,8 @@ export class NotificationElement extends LitElement {
   }
 }
 
+customElements.define("readthedocs-notification", NotificationElement);
+
 /**
  * Notification addon
  *
@@ -125,10 +132,6 @@ export class NotificationElement extends LitElement {
 export class NotificationAddon extends AddonBase {
   constructor(config) {
     super();
-
-    // Load this first as it is illegal to instantiate the element class without
-    // defining the custom element first.
-    customElements.define("readthedocs-notification", NotificationElement);
 
     // If there are no elements found, inject one
     let elems = document.querySelectorAll("readthedocs-notification");
