@@ -37,7 +37,7 @@ jobs:
       - run-checks: {}
   test:
     docker:
-      - image: "cimg/node-browsers:18.15.0"
+      - image: "cimg/node:18.15.0-browsers"
     steps:
       - run-tests: {}
   build:
