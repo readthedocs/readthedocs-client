@@ -6,7 +6,7 @@ commands:
     steps:
       - checkout
       - run: npm ci
-      - run: npm run test
+      - run: CHROME_PATH=/bin/chromium npm run test
   run-checks:
     description: "Run basic checks"
     steps:
