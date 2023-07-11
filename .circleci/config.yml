@@ -1,9 +1,14 @@
 version: 2.1
 
+orbs:
+  browser-tools: circleci/browser-tools@1.4.1
+
 commands:
   run-tests:
     description: "Run test suite"
     steps:
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
       - checkout
       - run: npm ci
       - run: npm run test
@@ -37,7 +42,7 @@ jobs:
       - run-checks: {}
   test:
     docker:
-      - image: "cimg/node:18.15.0"
+      - image: "cimg/node:18.15.0-browsers"
     steps:
       - run-tests: {}
   build:
