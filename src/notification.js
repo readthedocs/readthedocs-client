@@ -1,5 +1,4 @@
-import semverMaxSatisfying from "semver/ranges/max-satisfying";
-import semverCoerce from "semver/functions/coerce";
+import * as semver from "semver";
 import { library, icon } from "@fortawesome/fontawesome-svg-core";
 import {
   faCircleXmark,
@@ -94,8 +93,8 @@ export class NotificationElement extends LitElement {
   calculateHighestVersion() {
     // Convert versions like `v1` into `1.0.0` to be able to compare them
     const versions = this.config.addons.non_latest_version_warning.versions;
-    const coercedVersions = versions.map((v) => semverCoerce(v));
-    const coercedHighest = semverMaxSatisfying(coercedVersions, ">=0.0.0");
+    const coercedVersions = versions.map((v) => semver.coerce(v));
+    const coercedHighest = semver.maxSatisfying(coercedVersions, ">=0.0.0");
 
     // Get back the original `v1` to generate the URLs and display the correct name
     const index = coercedVersions.indexOf(coercedHighest);
